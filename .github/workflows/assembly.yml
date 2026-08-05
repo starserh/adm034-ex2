@@ -9,6 +9,7 @@ jobs:
   build_car:
     needs: start
     runs-on: ubuntu-latest
+    container: ubuntu:22.04
     steps:
       - name: Assemble car
         run: |
@@ -35,6 +36,7 @@ jobs:
   build_motorbike:
     needs: start
     runs-on: ubuntu-latest
+    container: ubuntu:22.04
     steps:
       - name: Assemble motorbike
         run: |
@@ -174,7 +176,6 @@ jobs:
 
       - name: Deploy car
         run: |
-          exit 1
           echo "Deploying car to production"
           cat build/car.txt  
 
