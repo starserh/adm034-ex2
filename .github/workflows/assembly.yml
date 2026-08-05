@@ -82,6 +82,8 @@ jobs:
     needs: build_motorbike
     runs-on: ubuntu-latest
     steps:
+      - name: Force a failure
+        run: exit 1 
       - name: Download motorbike artifact
         uses: actions/download-artifact@v7
         with:
@@ -237,9 +239,7 @@ jobs:
     needs: [test_car, test_motorbike, test_truck]
     runs-on: ubuntu-latest
     continue-on-error: true
-    steps:
-      - name: Force a failure
-        run: exit 1    
+    steps:  
       - name: Download all artifacts
         uses: actions/download-artifact@v7
         with:
